@@ -1,0 +1,24 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "n8n-mcp": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "n8n-mcp"
+      ],
+      "enabled": true,
+      "environment": {
+        "N8N_API_URL": "https://EURE-N8N-ADRESSE",
+        "N8N_API_KEY": "DEIN_N8N_API_KEY",
+        "N8N_MCP_ACCESS_TOKEN": "DEIN_MCP_ACCESS_TOKEN_ODER_ZEILE_LOESCHEN",
+        "MCP_MODE": "stdio",
+        "LOG_LEVEL": "error",
+        "DISABLE_CONSOLE_OUTPUT": "true",
+        "DISABLED_TOOLS": "n8n_delete_workflow,n8n_update_full_workflow,n8n_manage_credentials,n8n_audit_instance,n8n_manage_agents,n8n_evaluations",
+        "DISABLED_TOOL_OPERATIONS": "n8n_manage_folders:delete,move,rename;n8n_workflow_versions:delete,prune;n8n_executions:delete;n8n_manage_datatable:deletetable,deleterows,deletecolumn,renamecolumn,updatetable"
+      }
+    }
+  }
+}
