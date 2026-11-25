@@ -8,7 +8,7 @@ Minimaler, lauffähiger Starter für Oberflächen im AI Automation Bootcamp.
 Manuell geht es natürlich auch:
 ```bash
 npm install
-cp .env.local.example .env.local   # NEXT_PUBLIC_N8N_BASE eintragen
+cp .env.local.example .env.local   # n8n-Adresse steht schon drin
 npm run dev                        # http://localhost:3000
 ```
 

@@ -25,7 +25,7 @@ Diese Vorlage ist für die **Desktop-App** (Claude Code läuft auf deinem Rechne
 
 > **„Richte mir https://github.com/freddy-schuetz/tcf-ai-automation-bootcamp ein.“**
 
-Claude prüft die Voraussetzungen, lädt die Vorlage herunter, richtet sie ein und fragt dich nur nach deiner **n8n-URL** und deinem **n8n-API-Key**.
+Claude prüft die Voraussetzungen, lädt die Vorlage herunter, richtet sie ein und fragt dich nur nach deinem **n8n-API-Schlüssel**. Die Adresse eurer n8n steht schon drin.
 
 **Das brauchst du vorher:**
 - Die **Claude Desktop-App** ([Download](https://claude.com/download)) und einen **bezahlten Claude-Plan** (Pro, Max, Team oder Enterprise). Ohne ihn ist der Code-Bereich gesperrt. Gebaut wird im Bereich **Code**, Cowork eignet sich dafür nicht.
@@ -54,8 +54,8 @@ Claude prüft die Voraussetzungen, lädt die Vorlage herunter, richtet sie ein u
    - Ist der geöffnete Ordner leer, direkt hinein klonen: `git clone https://github.com/freddy-schuetz/tcf-ai-automation-bootcamp .`
    - Sonst in einen Unterordner klonen (`git clone https://github.com/freddy-schuetz/tcf-ai-automation-bootcamp`) und der Person sagen, dass sie nach dem Neustart genau den Ordner `tcf-ai-automation-bootcamp` im Code-Bereich öffnet. Nur dort werden `CLAUDE.md`, Skills und n8n-Verbindung geladen.
 3. **MCP-Konfiguration anlegen:** `.mcp.json` als Kopie von `.mcp.json.example` erzeugen (`cp .mcp.json.example .mcp.json`). Mit `git check-ignore .mcp.json` bestätigen, dass sie ignoriert wird.
-4. **n8n-Zugang erfragen** und in `.mcp.json` eintragen (`N8N_API_URL`, `N8N_API_KEY`):
-   - **Adresse:** die Adresse eurer n8n in one.intelligence, mit `https://` und ohne Pfad dahinter. Die Person kopiert sie aus der Adresszeile, wenn ihre n8n offen ist.
+4. **n8n-Zugang** in `.mcp.json`:
+   - **Adresse:** steht schon in `.mcp.json` (`N8N_API_URL` = `https://n8n.oi.destination.one`). Nur ändern, wenn die n8n der Person eine andere Adresse hat.
    - **API-Schlüssel:** legt die Person in n8n an (Einstellungen, „n8n API“, „Create API Key“), mit **langer Laufzeit**, damit das Projekt auch nach dem Bootcamp verbunden bleibt.
    - **`N8N_MCP_ACCESS_TOKEN` (optional):** Ohne ihn kann Claude Workflows **ohne** Webhook (also alle mit Zeitplan) nicht selbst starten, die Person startet sie dann im n8n-Editor. Bietet eure n8n unter Einstellungen den Punkt „Instance-level MCP“, erzeugt die Person dort einen Token. Sonst die Zeile aus `.mcp.json` löschen.
    - **`DISABLED_TOOLS` und `DISABLED_TOOL_OPERATIONS` stehen lassen.** Sie sperren Löschen und Umbauen über Claude, weil es ein echtes Konto ist.
@@ -72,7 +72,7 @@ Claude prüft die Voraussetzungen, lädt die Vorlage herunter, richtet sie ein u
 
 ## 🔑 n8n-Zugang
 
-**Eure n8n in one.intelligence:** Du arbeitest in deinem eigenen Konto. Adresse und API-Schlüssel stehen in deiner lokalen `.mcp.json`. Den Schlüssel legst du in n8n unter **Einstellungen, n8n API, Create API Key** an, mit langer Laufzeit. Workflows, Tabellen und Webhook-Pfade bekommen dein Kürzel (z. B. `mk-anfragen`), weil Pfade für die ganze n8n gelten.
+**Eure n8n in one.intelligence:** Du arbeitest in deinem eigenen Konto. Adresse (`https://n8n.oi.destination.one`, schon eingetragen) und API-Schlüssel stehen in deiner lokalen `.mcp.json`. Den Schlüssel legst du in n8n unter **Einstellungen, n8n API, Create API Key** an, mit langer Laufzeit. Workflows, Tabellen und Webhook-Pfade bekommen dein Kürzel (z. B. `mk-anfragen`), weil Pfade für die ganze n8n gelten.
 
 **Optional, der MCP-Token:** `N8N_MCP_ACCESS_TOKEN` in derselben `.mcp.json` schaltet frei, dass Claude Workflows **ohne Webhook** starten kann, also alle zeitgesteuerten. Ohne ihn startest du solche Workflows im n8n-Editor selbst.
 
@@ -85,7 +85,7 @@ Claude prüft die Voraussetzungen, lädt die Vorlage herunter, richtet sie ein u
 ```bash
 git clone https://github.com/freddy-schuetz/tcf-ai-automation-bootcamp
 cd tcf-ai-automation-bootcamp
-cp .mcp.json.example .mcp.json        # dann N8N_API_URL und N8N_API_KEY eintragen
+cp .mcp.json.example .mcp.json        # dann N8N_API_KEY eintragen
 ```
 Den Ordner in Claude Code öffnen. Der n8n-MCP-Server (`npx n8n-mcp`) und alle Skills laden automatisch. Verbindung mit „Prüfe die n8n-Verbindung.“ testen.
 

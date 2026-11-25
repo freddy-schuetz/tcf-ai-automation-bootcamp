@@ -32,7 +32,7 @@ Ablauf: **Tag 1** einrichten, Vorhaben klären (Skills `idee-klaeren` und `grill
 - **Vorrang:** Beschreibt ein Skill einen anderen Hosting-Weg oder einen fremden Account, gelten im Bootcamp die Abläufe in dieser Datei.
 
 ## n8n-Zugang
-- **Eure n8n in one.intelligence**, der Plattform, die die TCF für alle Mitarbeitenden nutzt. Jede Person arbeitet in ihrem **eigenen Konto**. Adresse und API-Schlüssel stehen in der lokalen `.mcp.json` (`N8N_API_URL`, `N8N_API_KEY`). Die Workflows bleiben dort, auch nach dem Bootcamp.
+- **Eure n8n in one.intelligence**, der Plattform, die die TCF für alle Mitarbeitenden nutzt. Jede Person arbeitet in ihrem **eigenen Konto**. Adresse (`https://n8n.oi.destination.one`) und API-Schlüssel stehen in der lokalen `.mcp.json` (`N8N_API_URL`, `N8N_API_KEY`). Die Workflows bleiben dort, auch nach dem Bootcamp.
 - **Eigenes Kürzel:** Workflows, Data Tables, Webhook- und Formularpfade beginnen mit dem Kürzel der Person (z. B. Workflow `mk_anfragen-sortieren`, Pfad `mk-anfragen`). Webhook-Pfade gelten für die ganze n8n-Instanz, auch für andere Häuser in one.intelligence. Ein Pfad darf nur einmal aktiv sein, sonst lässt sich der Workflow nicht aktivieren. In Skills und Beispiel-Workflows steht dafür `kuerzel`, `<kürzel>` oder `DEIN-KUERZEL` (Beispiel `mk`): Dort überall das Kürzel der Person einsetzen.
 - **Importe und Vorlagen** bekommen dasselbe Kürzel: Beispiele aus `examples/workflows/` und Vorlagen aus `n8n_deploy_template` (Parameter `name`) sofort umbenennen (z. B. `mk: hello-webhook`) und Webhook- und Formularpfade ändern (z. B. `mk-hello`), bevor du aktivierst.
 - **Gesperrt:** Workflows löschen, Zugänge verwalten, Ordner löschen oder verschieben, Versionen und Ausführungen löschen sowie Data Tables löschen oder umbauen sind in der `.mcp.json` abgeschaltet (`DISABLED_TOOLS`, `DISABLED_TOOL_OPERATIONS`), weil es echte Konten sind. Will die Person etwas löschen, macht sie das selbst im n8n-Editor. Diese Zeilen nicht aus der `.mcp.json` entfernen.
@@ -228,7 +228,7 @@ Lokal zeigst du die App auf `http://localhost:3000`. Will die Person eine **öff
    ```
 4. Veröffentlichen:
    ```bash
-   curl -s -X POST https://deploy.tcf.buildbar.de/publish -d deployId=<deployId> -d base_dir=/frontend-starter --data-urlencode password=<BOOTCAMP-PASSWORT> --data-urlencode env=$'NEXT_PUBLIC_N8N_BASE=https://EURE-N8N-ADRESSE\nNEXT_PUBLIC_SUPABASE_URL=...'
+   curl -s -X POST https://deploy.tcf.buildbar.de/publish -d deployId=<deployId> -d base_dir=/frontend-starter --data-urlencode password=<BOOTCAMP-PASSWORT> --data-urlencode env=$'NEXT_PUBLIC_N8N_BASE=https://n8n.oi.destination.one\nNEXT_PUBLIC_SUPABASE_URL=...'
    ```
    Antwort: die URL, z. B. `https://app-xxxx.tcf.buildbar.de`. **Der erste Build dauert einige Minuten.**
 5. **Spätere Änderungen veröffentlichen — dieselbe Adresse:** committen, pushen, dann
